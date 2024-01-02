@@ -1,0 +1,9 @@
+*.pyc
+*.txt
+*.png
+*.jpg
+*.zip
+*.csv
+*.h5
+data/*
+*.tar.gz

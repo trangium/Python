@@ -14,7 +14,7 @@ model = nn.Sequential(
 )
 
 learning_rate = 0.05
-batch_size = 1
+batch_size = 8
 loss_fn = torch.nn.MSELoss(reduction='sum')
 
 def test(model, samples=1000):
@@ -34,7 +34,7 @@ for i in range(2000001):
     if i % batch_size == 0:
         with torch.no_grad():
             for param in model.parameters():
-                param -= learning_rate * param.grad
+                param -= learning_rate * param.grad / batch_size
         model.zero_grad()
     
     if i%1000 == 0:
